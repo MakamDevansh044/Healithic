@@ -14,10 +14,10 @@ from modules.vision import FaceEyeDetector
 from modules.mood import MoodDetector
 from modules.notifier import Notifier
 from modules.activity import ActivityMonitor
-from ui.dashboard import WellZenDashboard
+from ui.dashboard import HealithicDashboard
 import tkinter as tk
 
-CONFIG_PATH = "config/wellzen_config.json"
+CONFIG_PATH = "config/Healithic_config.json"
 
 default_config = {
     "water_interval_minutes": 45,
@@ -99,7 +99,7 @@ def start_dashboard():
     bg_thread.start()
 
     app = tk.Tk()
-    dashboard_instance = WellZenDashboard(update_queue, master=app)
+    dashboard_instance = HealithicDashboard(update_queue, master=app)
     dashboard_instance.mainloop()
 
 def setup_tray():
@@ -110,7 +110,7 @@ def setup_tray():
     def on_open_dashboard(icon, item):
         threading.Thread(target=start_dashboard, daemon=True).start()
 
-    icon = pystray.Icon("WellZen", create_image(), "WellZen", menu=pystray.Menu(
+    icon = pystray.Icon("Healithic", create_image(), "Healithic", menu=pystray.Menu(
         pystray.MenuItem("Open Dashboard", on_open_dashboard),
         pystray.MenuItem("Quit", on_quit)
     ))

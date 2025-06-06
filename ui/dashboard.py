@@ -5,13 +5,13 @@ from datetime import datetime
 import json
 import os
 
-CONFIG_PATH = "config/wellzen_config.json"
+CONFIG_PATH = "config/Healithic_config.json"
 
-class WellZenDashboard(tk.Frame):
+class HealithicDashboard(tk.Frame):
     def __init__(self, update_queue, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("WellZen Health Dashboard")
+        self.master.title("Healithic Health Dashboard")
         self.pack(fill="both", expand=True)
         self.update_queue = update_queue
 
