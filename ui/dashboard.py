@@ -99,10 +99,10 @@ class WellZenDashboard(tk.Frame):
         ttk.Checkbutton(buzzer_frame, text="Enable Notifications", variable=self.notifications_enabled).pack(anchor="w", padx=5, pady=2)
         ttk.Checkbutton(buzzer_frame, text="Enable Webcam", variable=self.webcam_enabled).pack(anchor="w", padx=5, pady=2)
 
-        notify_frame = ttk.LabelFrame(self, text="Recent Notification")
-        notify_frame.pack(fill="x", padx=10, pady=10)
+        # notify_frame = ttk.LabelFrame(self, text="Recent Notification")
+        # notify_frame.pack(fill="x", padx=10, pady=10)
 
-        ttk.Label(notify_frame, textvariable=self.notification_text, wraplength=400).pack(padx=5, pady=5)
+        # ttk.Label(notify_frame, textvariable=self.notification_text, wraplength=400).pack(padx=5, pady=5)
 
     def update_config(self):
         for key, var in self.config_vars.items():

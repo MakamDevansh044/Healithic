@@ -1,5 +1,5 @@
 {
-    "water_interval_minutes": 1,
+    "water_interval_minutes": 40,
     "eye_exercise_interval_minutes": 30,
     "walk_interval_minutes": 60,
     "meal_interval_hours": 4,
