@@ -1,8 +1,8 @@
 {
     "water_interval_minutes": 1,
-    "eye_exercise_interval_minutes": 1,
-    "walk_interval_minutes": 1,
-    "meal_interval_hours": 5,
+    "eye_exercise_interval_minutes": 30,
+    "walk_interval_minutes": 60,
+    "meal_interval_hours": 4,
     "notifications_enabled": true,
     "webcam_enabled": true,
     "buzzer_enabled": true

@@ -1,4 +1,4 @@
-# === File: ui/dashboard.py ===
+# === Modified dashboard.py ===
 import tkinter as tk
 from tkinter import ttk
 from datetime import datetime
@@ -20,6 +20,8 @@ class WellZenDashboard(tk.Frame):
         self.face_count = tk.IntVar(value=0)
         self.eye_status = tk.StringVar(value="Unknown")
         self.buzzer_enabled = tk.BooleanVar(value=True)
+        self.notifications_enabled = tk.BooleanVar(value=True)
+        self.webcam_enabled = tk.BooleanVar(value=True)
 
         self.last_water_time = tk.StringVar(value="N/A")
         self.last_meal_time = tk.StringVar(value="N/A")
@@ -91,9 +93,11 @@ class WellZenDashboard(tk.Frame):
 
         ttk.Button(config_frame, text="Save Settings", command=self.update_config).grid(row=row, column=0, columnspan=2, pady=10)
 
-        buzzer_frame = ttk.LabelFrame(self, text="Buzzer Alerts")
+        buzzer_frame = ttk.LabelFrame(self, text="Toggles")
         buzzer_frame.pack(fill="x", padx=10, pady=10)
-        ttk.Checkbutton(buzzer_frame, text="Enable Buzzer Alerts", variable=self.buzzer_enabled).pack(anchor="w", padx=5, pady=5)
+        ttk.Checkbutton(buzzer_frame, text="Enable Buzzer Alerts", variable=self.buzzer_enabled).pack(anchor="w", padx=5, pady=2)
+        ttk.Checkbutton(buzzer_frame, text="Enable Notifications", variable=self.notifications_enabled).pack(anchor="w", padx=5, pady=2)
+        ttk.Checkbutton(buzzer_frame, text="Enable Webcam", variable=self.webcam_enabled).pack(anchor="w", padx=5, pady=2)
 
         notify_frame = ttk.LabelFrame(self, text="Recent Notification")
         notify_frame.pack(fill="x", padx=10, pady=10)
@@ -138,15 +142,18 @@ class WellZenDashboard(tk.Frame):
             else:
                 var.set("N/A")
 
-
-        # Update buzzer flag in config (optional sync)
         self.config_data["buzzer_enabled"] = self.buzzer_enabled.get()
         self.save_config()
 
         notification_msg = update.get("notification")
-        if notification_msg:
+        if notification_msg and self.notifications_enabled.get():
             self.notification_text.set(notification_msg)
-
 
     def is_buzzer_enabled(self):
         return self.buzzer_enabled.get()
+
+    def is_notifications_enabled(self):
+        return self.notifications_enabled.get()
+
+    def is_webcam_enabled(self):
+        return self.webcam_enabled.get()
