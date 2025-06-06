@@ -1,0 +1,8 @@
+{
+    "water_interval_minutes": 1,
+    "eye_exercise_interval_minutes": 1,
+    "walk_interval_minutes": 1,
+    "meal_interval_hours": 2,
+    "notifications_enabled": true,
+    "webcam_enabled": true
+}

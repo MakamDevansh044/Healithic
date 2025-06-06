@@ -1,0 +1,9 @@
+opencv-python
+pynput
+plyer
+pystray
+Pillow
+deepface
+mediapipe 
+scipy
+tf-keras
