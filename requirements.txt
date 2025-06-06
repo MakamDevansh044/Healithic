@@ -7,3 +7,4 @@ deepface
 mediapipe 
 scipy
 tf-keras
+playsound
