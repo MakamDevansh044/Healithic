@@ -4,6 +4,14 @@ import os
 import threading
 import pygame
 from plyer import notification
+import sys
+import os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for dev and for PyInstaller) """
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 
 class Notifier:
@@ -21,7 +29,7 @@ class Notifier:
     def init_buzzer(self):
         try:
             pygame.mixer.init()
-            buzzer_path = os.path.join("assets", "buzzer.wav")
+            buzzer_path = resource_path(os.path.join("assets", "buzzer.wav"))
             if os.path.exists(buzzer_path):
                 self.buzzer = pygame.mixer.Sound(buzzer_path)
             else:

@@ -4,8 +4,16 @@ from tkinter import ttk
 from datetime import datetime
 import json
 import os
+import sys
 
-CONFIG_PATH = "config/Healithic_config.json"
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for dev and for PyInstaller) """
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+CONFIG_PATH = resource_path("config/Healithic_config.json")
 
 class HealithicDashboard(tk.Frame):
     def __init__(self, update_queue, master=None):

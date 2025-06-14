@@ -17,7 +17,15 @@ from modules.activity import ActivityMonitor
 from ui.dashboard import HealithicDashboard
 import tkinter as tk
 
-CONFIG_PATH = "config/Healithic_config.json"
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for dev and for PyInstaller) """
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+
+CONFIG_PATH = resource_path("config/Healithic_config.json")
 
 default_config = {
     "water_interval_minutes": 45,
